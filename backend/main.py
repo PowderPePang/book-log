@@ -6,6 +6,6 @@ app = FastAPI()
 def read_root():
     return {"message": "Hello, book log"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "query": q}
+@app.get("/health")
+def health():
+    return {"status": "ok"}
