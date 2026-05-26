@@ -3,11 +3,11 @@ from typing import Optional, TYPE_CHECKING
 from sqlalchemy import Text, Integer, DateTime, ForeignKey, CheckConstraint
 from sqlalchemy.sql import func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from backend.app.db.base import Base
+from app.db.base import Base
 
 if TYPE_CHECKING:
     # This import only happens for VSCode, not when the app runs.
-    from backend.app.models.user import User
+    from app.models.user import User
 
 class Book(Base):
     __tablename__ = "books"

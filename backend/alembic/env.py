@@ -18,12 +18,12 @@ sys.path.append(os.path.dirname(BASE_DIR))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # Import the Base master catalog
-from backend.app.db.base import Base
+from app.db.base import Base
 
 # CRITICAL: You MUST import your models here, even if you don't use them directly. 
 # If they are not imported, Base.metadata will be empty, and Alembic won't see them.
-from backend.app.models.user import User
-from backend.app.models.book import Book
+from app.models.user import User
+from app.models.book import Book
 
 # os.getenv safely retrieves the value from the .env file
 DATABASE_URL = os.getenv("DATABASE_URL")

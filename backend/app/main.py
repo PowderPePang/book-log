@@ -1,11 +1,11 @@
 from fastapi import FastAPI
+from app.routes import books
 
-app = FastAPI()
+app = FastAPI(title="Booklog API")
+
+# Plug the router into the application
+app.include_router(books.router)
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello, book log"}
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+    return {"status": "ok, API is running"}
