@@ -36,11 +36,6 @@ def list_books(db: Session = Depends(get_db)):
     stmt = select(Book).where(Book.user_id == FAKE_USER_ID)
     # scalars().all() extracts the actual Book objects from the SQLAlchemy result rows
     books = db.execute(stmt).scalars().all()
-
-    # If the list is empty, Python evaluates 'not books' as True.
-    # This is optional. If there is no this if statement, the request will perfectly successful (200 OK), and the factual answer to "what is on the list?" is []
-    if not books:
-        raise HTTPException(status_code=404, detail="No books currently exist for this user")
     
     return books
 

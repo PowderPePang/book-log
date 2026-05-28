@@ -27,7 +27,7 @@ class BookUpdate(BaseModel):
     title: str | None = Field(default=None, min_length=1)
     author: str | None = Field(default=None, min_length=1)
     rating: int | None = Field(default=None, ge=1, le=5)
-    note: str | None = None
+    note: str | None = Field(default=None, max_length=2000)
 
 # 4. The Read Schema
 # Used for the API response. It inherits from BookBase but adds the system-generated fields that the user is allowed to be.
